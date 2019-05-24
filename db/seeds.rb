@@ -5,6 +5,10 @@ URL = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'.freeze
 
 ingredients_list = open(URL).read
 
+puts 'Cleaning database...'
+
+[Cocktail, Ingredient, Dose].each(&:destroy_all)
+
 puts 'Creating your ingredients...'
 
 ingredients = JSON.parse(ingredients_list)

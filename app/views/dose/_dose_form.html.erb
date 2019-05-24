@@ -1,6 +1,7 @@
-<%= simple_form_for [@cocktail, @dose] do |f| %>
+<%= simple_form_for [@cocktail, @dose], class: 'form-inline' do |f| %>
+
   <%= f.input :description %>
   <%= f.association :ingredient, collection: Ingredient.order(:name) %>
 
-  <%= f.submit "Add dose", class: "btn text-white", style:"background-color: #6ea4f7;" %>
+  <%= f.submit "Add dose", class: "btn button" %>
 <% end %>

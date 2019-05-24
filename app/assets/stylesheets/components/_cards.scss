@@ -1,0 +1,57 @@
+.cocktail-image {
+  img {
+    height: 400px;
+    width: 400px;
+    object-fit: cover;
+  }
+  a {
+    text-decoration: none !important;
+  }
+}
+
+.card-deck {
+  margin: 0 auto;
+}
+
+.cocktail-card {
+  text-align: center;
+  margin: 4px;
+  width: 200px;
+  color: black;
+
+  &:hover {
+    h5 {
+      font-weight: bold;
+    }
+  }
+
+  img {
+    object-fit: cover;
+    filter: url(filters.svg#grayscale);
+    filter: grayscale(1);
+    height: 200px;
+    width: 100%;
+
+    &:hover {
+      filter: none;
+    }
+  }
+}
+
+.review {
+  display: flex;
+
+  .star-count {
+    width: 180px;
+    margin: 5px;
+    color: $dark_pink;
+  }
+
+  .alcohol {
+    background-color: white;
+    border-radius: 5px;
+    width: 100%;
+    margin: 5px;
+    padding-left: 8px;
+  }
+}

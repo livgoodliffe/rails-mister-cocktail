@@ -1,20 +1,57 @@
-<h1><%= @cocktail.name %></h1>
+<div class="container">
+  <div class="d-flex justify-content-between">
 
-<ul>
-  <% @cocktail.doses.each do |dose| %>
-    <li><%= dose.description %> | <%= dose.ingredient.name %> |
+    <div>
+      <h1><%= @cocktail.name %></h1>
+      <ul>
+        <% @cocktail.doses.each do |dose| %>
+          <li><%= dose.description %> | <%= dose.ingredient.name %> |
+            <%= link_to dose_path(dose), :method => :delete do %>
+              <i class="fas fa-trash-alt"></i>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+      <%= render 'dose/new', cocktail: @cocktail %>
+    </div>
 
+    <div class="cocktail-image">
+      <%= cl_image_tag @cocktail.photo, crop: :fill %>
+    </div>
 
-      <%= link_to dose_path(dose), :method => :delete do %>
-        <i class="fas fa-trash-alt"></i>
+  </div>
+
+  <br>
+
+  <% sum = 0 %>
+
+  <div class="d-flex justify-content-between">
+
+    <div>
+      <% @cocktail.reviews.each do |review| %>
+        <div class="review">
+          <div class="w-100 star-count">
+            <ul class="list-inline">
+            <% (review.stars).times do %>
+              <li class="list-inline-item"><i class="fas fa-star"></i></li>
+            <% end %>
+            </ul>
+          </div>
+
+          <div class="alcohol">
+            <p>"<%= review.content %>"</p>
+          </div>
+        </div>
+        <% sum += review.stars  %>
       <% end %>
+    </div>
+    <div class="w-4 bg-white p-4 align-content-center border">
+      <h3><%= sum / (@cocktail.reviews).count %></h3>
+      <p>Average score</p>
+    </div>
+  </div>
+  <br>
 
+  <%= render 'review_form', cocktail: @cocktail %>
 
-
-
-
-      </li>
-  <% end %>
-</ul>
-
-<%= render 'dose/new', cocktail: @cocktail %>
+</div>
