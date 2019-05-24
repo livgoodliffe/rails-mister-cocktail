@@ -1,0 +1,38 @@
+$dark_pink: #E17F8B;
+$light_pink: #F6CED6;
+$dark_grey: #262730;
+
+
+#cocktail-header {
+  background-image: url('https://cdn.dribbble.com/users/646147/screenshots/6432151/coco-moment_2x.png');
+  background-position: center;
+  color: white;
+  height: 500px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  h1 {
+    font-family: $logo-font;
+    font-size: 100px;
+    text-shadow: 1px 1px 4px #000000;
+  }
+}
+
+#navbar {
+  font-family: $logo-font;
+  position: sticky;
+  background-color: $dark_grey;
+  a {
+    color: white;
+    font-size: 25px;
+  }
+}
+
+#cocktail-card {
+  border-style: solid;
+  border-radius: 4px;
+  border-color: $dark_pink;
+  border-width: 5px;
+  padding: 16px;
+  margin: 4px;
+}

@@ -1,0 +1,25 @@
+<header class="masthead text-center" id="cocktail-header">
+  <div class="container">
+    <h1 class="mb-0">Mister Cocktail</h1>
+    <br>
+    <h2 class="font-weight-light mb-0">Create your own recipe library</h2>
+  </div>
+</header>
+
+<br>
+
+<div class="container">
+
+  <div class="d-flex">
+
+    <% @cocktails.each do |cocktail| %>
+      <div id="cocktail-card">
+        <h3><%= link_to cocktail.name, cocktail_path(cocktail) %></h3>
+      </div>
+    <% end %>
+
+  </div>
+
+  <%= link_to "Add cocktail", new_cocktail_path, class: "btn" %>
+
+</div>
